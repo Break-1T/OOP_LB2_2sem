@@ -11,12 +11,17 @@ namespace Task2
             _keyArray = Array.Empty<K>();
             _valueArray = Array.Empty<V>();
         }
-        public K[] _keyArray;
+        private K[] _keyArray;
         private V[] _valueArray;
 
         public int Count
         {
             get { return _valueArray.Length; }
+        }
+
+        public K[] Keys
+        {
+            get { return _keyArray; }
         }
         
         public V this[K index]
