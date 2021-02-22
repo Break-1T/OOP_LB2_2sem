@@ -2,16 +2,16 @@
 
 namespace Task3
 {
-    class Program
+    static class Program
     {
         static void Main(string[] args)
         {
-            MyList<int> myList = new MyList<int>();
-            myList.Add(1);
-            myList.Add(2);
-            myList.Add(3);
-            myList.Add(4);
-            myList.Add(5);
+            MyList<string> myList = new MyList<string>();
+            myList.Add("One");
+            myList.Add("Two");
+            myList.Add("Three");
+            myList.Add("Four");
+            myList.Add("Five");
             for (int i = 0; i < myList.Count; i++)
             {
                 Console.WriteLine(myList[i]);
@@ -19,7 +19,7 @@ namespace Task3
             
             Console.WriteLine(new string('-',30));
 
-            int[] array = GetArray(myList);
+            var array = myList.GetArray();
 
             foreach (var i in array)
             {
@@ -27,14 +27,11 @@ namespace Task3
             }
         }
 
-        public static T[] GetArray<T>(MyList<T> list)
+        public static T[] GetArray<T>(this MyList<T> list)
         {
             T[] result = new T[list.Count];
             for (int i = 0; i < result.Length; i++)
-            {
                 result[i] = list[i];
-            }
-
             return result;
         }
     }
